@@ -19,6 +19,25 @@ Known follow-up polish:
 
 Final result: passed
 
+## Shared Header
+
+Sources:
+- `/Users/andyduan26/Desktop/截屏2026-07-20 上午1.26.52.png`
+- `/Users/andyduan26/Desktop/截屏2026-07-20 上午1.26.39.png`
+
+Prototype routes:
+- `http://127.0.0.1:5174/`
+- `http://127.0.0.1:5174/play/1`
+- `http://127.0.0.1:5174/category`
+
+Checks completed:
+- Home, play, and category routes now render the same `.site-header` from `AppShell.vue`.
+- Header includes one shared logo, channel navigation, search, member CTA, history, client, and login controls.
+- Legacy page-conditional header and left-rail branch were removed from the component.
+- Browser verification confirmed the shared header is `74px` tall and mounted at `0,0` on all three routes.
+
+Final result: passed
+
 ## Play Page
 
 Source: `/Users/andyduan26/Downloads/v.youku.com_v_show_id_XNjU0OTEwMDE0MA==.html_spm=a2hkl.14919748_WEBCULTURE_JINGXUAN.drawer2.d_zj1_4&s=fadcbc4d3d9545088ea9&scm=20140719.manual.48465.show_fadcbc4d3d9545088ea9.png`
