@@ -66,10 +66,21 @@ class VideoListSerializer(serializers.ModelSerializer):
 class VideoDetailSerializer(VideoListSerializer):
     comments_count = serializers.IntegerField(source="comments.count", read_only=True)
     favorites_count = serializers.IntegerField(source="favorites.count", read_only=True)
+    play_url = serializers.SerializerMethodField()
+    has_video_file = serializers.SerializerMethodField()
 
     class Meta(VideoListSerializer.Meta):
-        fields = VideoListSerializer.Meta.fields + ["play_url", "comments_count", "favorites_count", "created_at", "updated_at"]
-        extra_kwargs = {"play_url": {"read_only": True}}
+        fields = VideoListSerializer.Meta.fields + ["play_url", "has_video_file", "comments_count", "favorites_count", "created_at", "updated_at"]
+
+    def get_play_url(self, obj):
+        if not obj.video_file:
+            return ""
+        request = self.context.get("request")
+        url = obj.video_file.url
+        return request.build_absolute_uri(url) if request else url
+
+    def get_has_video_file(self, obj):
+        return bool(obj.video_file)
 
 
 class VideoUploadSerializer(serializers.ModelSerializer):

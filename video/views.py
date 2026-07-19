@@ -52,10 +52,10 @@ class VideoViewSet(JsonResponseMixin, viewsets.ReadOnlyModelViewSet):
         serializer = VideoListSerializer(queryset, many=True, context={"request": request})
         return Response(serializer.data)
 
-    @action(detail=True, methods=["post"], permission_classes=[permissions.IsAuthenticated], url_path="play-auth")
+    @action(detail=True, methods=["post"], permission_classes=[permissions.AllowAny], url_path="play-auth")
     def play_auth(self, request, pk=None):
         video = self.get_object()
-        allowed = not video.member_only or user_has_active_membership(request.user)
+        allowed = bool(video.video_file) or not video.member_only or user_has_active_membership(request.user)
         if allowed:
             Video.objects.filter(pk=video.pk).update(play_count=F("play_count") + 1)
         return Response(
@@ -63,7 +63,8 @@ class VideoViewSet(JsonResponseMixin, viewsets.ReadOnlyModelViewSet):
                 "video_id": video.video_id,
                 "allowed": allowed,
                 "member_only": video.member_only,
-                "play_url": video.resolved_play_url if allowed else "",
+                "play_url": request.build_absolute_uri(video.video_file.url) if allowed and video.video_file else "",
+                "has_video_file": bool(video.video_file),
             }
         )
 

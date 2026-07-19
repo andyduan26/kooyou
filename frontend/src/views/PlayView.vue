@@ -18,6 +18,7 @@ const allowed = ref(false)
 const error = ref('')
 
 const displayDanmaku = computed(() => danmakus.value.slice(0, 3))
+const hasPlayableSource = computed(() => Boolean(video.value?.has_video_file && video.value?.play_url))
 const recommendVideos = computed(() => related.value.filter((item) => item.id !== video.value?.id).slice(0, 20))
 const episodeItems = computed(() => {
   const count = video.value?.episode_count || 1
@@ -98,14 +99,14 @@ watch(() => route.params.id, load)
       <main class="play-left">
         <section class="youku-member-player">
           <div class="video-player-container play-member-cover" :data-vid="video.video_id || 'VIDEO_ID'">
-            <video v-if="allowed && video.play_url" class="native-player" controls :poster="video.cover_url">
+            <video v-if="allowed && hasPlayableSource" class="native-player" controls :poster="video.cover_url">
               <source :src="video.play_url" type="video/mp4" />
             </video>
             <template v-else>
               <div class="member-player-copy">
-                <h1>{{ video.member_only ? '本片为会员专属内容' : video.title }}</h1>
-                <p>{{ video.member_only ? '开通会员观看完整视频' : '暂无可播放视频源' }}</p>
-                <button v-if="video.member_only" type="button" @click="modalOpen = true">
+                <h1>{{ video.member_only && !allowed ? '本片为会员专属内容' : video.title }}</h1>
+                <p>{{ video.member_only && !allowed ? '开通会员观看完整视频' : '后台未上传视频文件' }}</p>
+                <button v-if="video.member_only && !allowed" type="button" @click="modalOpen = true">
                   <span>会员特惠</span>
                   立即开通
                 </button>
