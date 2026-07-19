@@ -201,6 +201,50 @@ button {
   object-fit: cover;
 }
 
+.card-cover-empty,
+.movie-hero-empty,
+.play-empty-state,
+.home-empty-state {
+  display: grid;
+  place-items: center;
+  background: #242628;
+  color: rgba(255, 255, 255, 0.58);
+  text-align: center;
+}
+
+.card-cover-empty {
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.home-empty-state {
+  min-height: 540px;
+  padding-top: 120px;
+  box-sizing: border-box;
+  align-content: center;
+}
+
+.play-empty-state {
+  min-height: 520px;
+  padding-top: 130px;
+  box-sizing: border-box;
+}
+
+.home-empty-state h1,
+.play-empty-state h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 28px;
+}
+
+.home-empty-state p,
+.play-empty-state p {
+  margin: 14px 0 0;
+  font-size: 14px;
+}
+
 .pack_title_vhB7u {
   margin-top: 10px;
   color: rgba(255, 255, 255, 0.94);
