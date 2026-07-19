@@ -9,6 +9,13 @@
 - RESTful API： 首页推荐、分类筛选、视频详情、播放鉴权、弹幕提交、收藏、会员校验、后台上传
 - CORS 支持本地 Vite 与 Vercel 前端域名
 
+## 前端能力
+
+- Vue3 + Vite + Vue Router + Pinia + Axios 独立前端
+- 基于第一阶段优酷静态 HTML 视觉基准复刻首页、分类页、播放页和个人中心
+- 对接 Django REST API，使用 `VITE_API_BASE_URL` 管理后端地址
+- Vercel 静态部署配置已放在 `frontend/vercel.json`
+
 ## 快速启动
 
 ```bash

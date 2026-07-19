@@ -71,3 +71,50 @@ API 根路径：`http://127.0.0.1:8000/api/`
 python manage.py check
 python manage.py test
 ```
+
+# 前端搭建
+
+## 1. 创建 Vue3 + Vite 项目
+
+本仓库已在 `frontend/` 中创建独立前端。等价创建命令如下：
+
+```bash
+npm create vite@latest frontend -- --template vue
+cd frontend
+npm install vue-router pinia axios
+```
+
+## 2. 安装依赖
+
+```bash
+cd /Users/andyduan26/Documents/优酷2.0/frontend
+npm install
+cp .env.example .env
+```
+
+`.env` 默认：
+
+```bash
+VITE_API_BASE_URL=http://127.0.0.1:8000/api
+```
+
+## 3. 本地启动
+
+```bash
+npm run dev
+```
+
+前端地址：`http://127.0.0.1:5173/`
+
+## 4. 构建与部署
+
+```bash
+npm run build
+```
+
+Vercel：
+
+- Root Directory：`frontend`
+- Build Command：`npm run build`
+- Output Directory：`dist`
+- 环境变量：`VITE_API_BASE_URL=https://你的后端域名/api`
