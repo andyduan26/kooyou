@@ -572,6 +572,579 @@ button {
   }
 }
 
+/* Youku play page pixel-target */
+.play-shell {
+  background: #121314;
+}
+
+.play-shell .shell-main {
+  padding-left: 0;
+}
+
+.play-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 46px;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+  background: rgba(17, 18, 19, 0.96);
+  color: rgba(255, 255, 255, 0.72);
+  column-gap: 26px;
+}
+
+.play-topbar-logo {
+  display: flex;
+  align-items: center;
+  width: 76px;
+  height: 46px;
+  padding-left: 2px;
+}
+
+.play-topbar-logo img {
+  width: 70px;
+  height: auto;
+}
+
+.play-topbar-link {
+  font-size: 14px;
+  line-height: 46px;
+  white-space: nowrap;
+}
+
+.play-topbar-search {
+  display: flex;
+  align-items: center;
+  width: 355px;
+  height: 30px;
+  margin-left: 6px;
+  padding: 0 13px 0 17px;
+  border-radius: 18px;
+  background: #222426;
+  box-sizing: border-box;
+}
+
+.play-topbar-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+}
+
+.play-topbar-search span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 21px;
+}
+
+.play-topbar-vip {
+  height: 28px;
+  padding: 0 15px;
+  border-radius: 16px;
+  background: #272522;
+  color: #f6c66c;
+  font-size: 13px;
+  line-height: 28px;
+}
+
+.play-topbar-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  line-height: 14px;
+}
+
+.play-topbar-icon span {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.play-topbar-login {
+  height: 30px;
+  padding: 0 16px;
+  border-radius: 16px;
+  background: #2b2d30;
+  color: #fff;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.play-page {
+  display: grid;
+  grid-template-columns: 720px 1fr;
+  column-gap: 24px;
+  width: 1235px;
+  margin: 0;
+  padding: 84px 0 0 54px;
+  box-sizing: border-box;
+}
+
+.play-left {
+  min-width: 0;
+}
+
+.youku-member-player {
+  width: 720px;
+  height: 400px;
+}
+
+.play-member-cover {
+  position: relative;
+  width: 720px;
+  height: 400px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 74% 28%, rgba(113, 83, 28, 0.55), transparent 19%),
+    linear-gradient(180deg, #050505, #010101);
+}
+
+.play-member-cover::after {
+  position: absolute;
+  right: 96px;
+  top: 74px;
+  width: 145px;
+  height: 100px;
+  border-radius: 26px;
+  background: rgba(163, 124, 42, 0.14);
+  box-shadow: 0 0 55px rgba(191, 139, 44, 0.18);
+  content: "";
+  transform: rotate(-35deg);
+}
+
+.member-player-copy {
+  position: absolute;
+  top: 31px;
+  left: 235px;
+  z-index: 2;
+  width: 250px;
+  text-align: center;
+}
+
+.member-player-copy h1 {
+  margin: 0 0 13px;
+  color: #f8cf76;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.member-player-copy p {
+  margin: 0 0 9px;
+  color: #d4b66d;
+  font-size: 13px;
+}
+
+.member-player-copy button,
+.play-vip-card button {
+  width: 195px;
+  height: 52px;
+  border: 0;
+  border-radius: 4px;
+  background: #ffd074;
+  color: #3d2607;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.member-player-copy button span {
+  display: block;
+  width: 135px;
+  height: 18px;
+  margin: -12px auto 2px;
+  border-radius: 2px;
+  background: #f04b43;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.member-player-chevron {
+  position: absolute;
+  right: 14px;
+  top: 160px;
+  z-index: 3;
+  color: #fff;
+  font-size: 58px;
+  line-height: 58px;
+  font-family: Arial, sans-serif;
+}
+
+.member-benefits {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  bottom: 28px;
+  z-index: 3;
+  color: #84652d;
+  text-align: center;
+}
+
+.member-benefits > span {
+  display: inline-block;
+  width: 155px;
+  height: 1px;
+  background: #34230e;
+  vertical-align: middle;
+}
+
+.member-benefits em {
+  display: inline-block;
+  margin: 0 14px;
+  color: #8e6e31;
+  font-size: 12px;
+  font-style: normal;
+  vertical-align: middle;
+}
+
+.benefit-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.benefit-row div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 76px;
+}
+
+.benefit-row i {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #2b2418;
+  color: #f5c565;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.benefit-row b {
+  display: block;
+  margin-top: 10px;
+  color: #96753b;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.play-recommend {
+  padding-top: 26px;
+}
+
+.play-recommend h2,
+.play-side-section h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.play-poster-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 226px);
+  column-gap: 11px;
+  row-gap: 20px;
+}
+
+.play-poster-card {
+  width: 226px;
+}
+
+.play-poster-frame {
+  position: relative;
+  width: 226px;
+  height: 318px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #1b1c1f;
+}
+
+.play-poster-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-card-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 3px;
+  background: rgba(31, 32, 34, 0.72);
+  color: #e5c26f;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.play-poster-frame small {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+}
+
+.play-poster-card h3 {
+  margin: 8px 0 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.play-right {
+  width: 455px;
+  min-width: 0;
+}
+
+.play-tabs {
+  display: flex;
+  align-items: flex-end;
+  height: 38px;
+  column-gap: 30px;
+}
+
+.play-tabs button {
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.play-tabs button.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.play-tabs button.active::after {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 46px;
+  height: 3px;
+  border-radius: 2px;
+  background: #00a1ff;
+  content: "";
+}
+
+.play-info {
+  position: relative;
+  min-height: 286px;
+  padding-top: 26px;
+  box-sizing: border-box;
+}
+
+.play-info h1 {
+  margin: 0 0 13px;
+  max-width: 280px;
+  overflow: hidden;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.play-info::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 180px;
+  height: 118px;
+  background: #1f2023;
+  content: "复制视频网址\A复制淘口令\A版本号9.19.5";
+  white-space: pre;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  line-height: 30px;
+  padding: 18px 0 0 35px;
+  box-sizing: border-box;
+}
+
+.play-info-meta {
+  margin-bottom: 11px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 13px;
+}
+
+.play-info p {
+  max-width: 365px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.play-action-row {
+  display: flex;
+  column-gap: 18px;
+  margin-top: 19px;
+}
+
+.play-action-row button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: #282a2d;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 18px;
+}
+
+.danmaku-mini {
+  display: none;
+}
+
+.play-vip-card {
+  width: 405px;
+  height: 142px;
+  margin: 12px 0 32px;
+  padding: 22px 20px 18px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: linear-gradient(96deg, #513719, #8a5c26);
+}
+
+.play-vip-card strong {
+  display: block;
+  color: #ffe9af;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.play-vip-card p {
+  margin: 8px 0 14px;
+  color: rgba(255, 230, 176, 0.72);
+  font-size: 12px;
+}
+
+.play-vip-card button {
+  width: 365px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.play-side-section {
+  margin-bottom: 34px;
+}
+
+.side-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 405px;
+}
+
+.side-heading a {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 12px;
+}
+
+.episode-item,
+.around-item {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  column-gap: 16px;
+  width: 405px;
+  margin-bottom: 14px;
+}
+
+.episode-item {
+  cursor: pointer;
+}
+
+.episode-item img,
+.around-item img {
+  width: 190px;
+  height: 96px;
+  border-radius: 3px;
+  object-fit: cover;
+  background: #222;
+}
+
+.episode-item.active img {
+  filter: brightness(0.72);
+}
+
+.episode-item p,
+.around-item p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.around-item {
+  grid-template-columns: 190px 1fr;
+  margin-bottom: 13px;
+}
+
+.around-item time {
+  display: block;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 12px;
+}
+
+.play-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 60px;
+  width: 1180px;
+  margin: 170px 0 0 54px;
+  padding: 0 0 58px;
+  color: rgba(255, 255, 255, 0.44);
+}
+
+.play-footer h3 {
+  margin: 0 0 24px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.play-footer p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.play-footer small {
+  grid-column: 1 / -1;
+  margin-top: 54px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 11px;
+  line-height: 22px;
+}
+
 /* Youku movie channel pixel-target homepage */
 .movie-shell-side {
   width: 112px;

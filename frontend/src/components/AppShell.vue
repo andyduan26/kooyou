@@ -1,6 +1,10 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { computed } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import { assets } from '@/assets/baseline-assets'
+
+const route = useRoute()
+const isPlayPage = computed(() => route.name === 'play')
 
 const channels = [
   { name: '首页', icon: assets.navPublic },
@@ -19,8 +23,23 @@ const channels = [
 </script>
 
 <template>
-  <div class="youku-shell">
-    <aside class="leftnav_left_box leftnav_left_box_z leftnav_light_on shell-side movie-shell-side">
+  <div class="youku-shell" :class="{ 'play-shell': isPlayPage }">
+    <header v-if="isPlayPage" class="play-topbar">
+      <RouterLink to="/" class="play-topbar-logo">
+        <img :src="assets.logo" alt="优酷" />
+      </RouterLink>
+      <RouterLink class="play-topbar-link" to="/">首页</RouterLink>
+      <RouterLink class="play-topbar-link" to="/category">分类⌄</RouterLink>
+      <div class="play-topbar-search">
+        <input placeholder="神奇动物在哪里" />
+        <span>⌕</span>
+      </div>
+      <RouterLink class="play-topbar-vip" to="/profile">会员特惠</RouterLink>
+      <RouterLink class="play-topbar-icon" to="/profile">◷<span>历史</span></RouterLink>
+      <RouterLink class="play-topbar-icon" to="/profile">▱<span>客户端</span></RouterLink>
+      <RouterLink class="play-topbar-login" to="/profile">登录</RouterLink>
+    </header>
+    <aside v-if="!isPlayPage" class="leftnav_left_box leftnav_left_box_z leftnav_light_on shell-side movie-shell-side">
       <div class="leftnav_left_logo">
         <RouterLink to="/" class="logo_logo_box logo_logo_hover">
           <img class="logo_logo_img" :src="assets.logo" alt="Kooyou" />
@@ -46,7 +65,7 @@ const channels = [
         </div>
       </nav>
     </aside>
-    <header class="topheader_top_header_box topheader_top_filter_no shell-top movie-shell-top">
+    <header v-if="!isPlayPage" class="topheader_top_header_box topheader_top_filter_no shell-top movie-shell-top">
       <div class="topheader_left_box"></div>
       <div class="topheader_right_box topheader_left_box_margin topheader_channel">
         <div class="search_search_box">
